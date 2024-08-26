@@ -19,6 +19,16 @@ Exemplo de como fazer scan do endereço [testasp.vulnweb.com](testasp.vulnweb.co
         "end_port": 100
     }
 
+O resultado do scan pode ser visto na url. Como o modelo abaixo:
+    {
+        "host": "testasp.vulnweb.com",
+        "host_ip": "44.238.29.244",
+        "open_ports": {
+            "80": "HTTP"
+        }
+    }
+
+Além disso, é imprimido no terminal o status de cada porta (open/closed) e seu serviço caso esteja aberta.
 
 **Fontes**
 Projetos utilizados como base para montar o programa e a base de dados.
