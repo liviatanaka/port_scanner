@@ -24,5 +24,4 @@ Exemplo de como fazer scan do endereço [testasp.vulnweb.com](testasp.vulnweb.co
 Projetos utilizados como base para montar o programa e a base de dados.
 * https://github.com/filipe1417/python-portscan-rapido/blob/main/portScan.py 
 * https://medium.com/@wizD/a-simple-port-scanner-using-python-e541454ea570
-* https://www.geeksforgeeks.org/50-common-ports-you-should-know/
-* https://www.ibm.com/docs/en/zos/2.4.0?topic=reference-well-known-port-assignments
+* https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml

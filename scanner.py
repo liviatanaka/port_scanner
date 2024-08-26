@@ -11,7 +11,9 @@ class ScanIn(BaseModel):
 class Scanner:
 
     def __init__(self):
-        self.well_known_ports = pd.read_csv("wellKnownPorts.csv", index_col="port").to_dict()["service"]
+        self.well_known_ports = pd.read_csv("service-names-port-numbers.csv", index_col="Port Number").to_dict()["Description"]
+        self.well_known_ports = {k: v for k, v in self.well_known_ports.items() if type(v) == str}
+
 
     def scan_ports(self, host, host_port, start_port, end_port):
         response = {
@@ -28,8 +30,8 @@ class Scanner:
             result = sock.connect_ex((host_, port_))
 
             if result == 0:
-                if port_ in self.well_known_ports:
-                    open_ports[port_] = self.well_known_ports[port_]
+                if str(port_) in self.well_known_ports:
+                    open_ports[port_] = self.well_known_ports[str(port_)]
                 else:
                     open_ports[port_] = "unknown"
 
