@@ -24,7 +24,7 @@ class Scanner:
 
         def scan(host_, port_):
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(1)  # Set a connection timeout
+            sock.settimeout(3)  # Set a connection timeout
             result = sock.connect_ex((host_, port_))
 
             if result == 0:
