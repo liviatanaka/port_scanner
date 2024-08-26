@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from scanner import Scanner, ScanIn
 import socket
+
 
 app = FastAPI()
 
@@ -8,14 +9,18 @@ app = FastAPI()
 scanner = Scanner()
 
 @app.post("/scan/host")
-def scan_host(input: ScanIn):
+async def scan_host(input: ScanIn):
     print(input)
-    host_port = socket.gethostbyname(input.host)
+    try:
+        host_port = socket.gethostbyname(input.host)
+    except:
+        raise HTTPException(status_code=400, detail="Invalid host")
+    
     results = scanner.scan_ports(input.host, host_port, input.start_port, input.end_port)
     return results
 
 @app.post("/scan/ip")
-def scan_ip(input: ScanIn):
+async def scan_ip(input: ScanIn):
 
     results = scanner.scan_ports("", input.host, input.start_port, input.end_port)
     return results

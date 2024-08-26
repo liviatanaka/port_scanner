@@ -7,3 +7,4 @@
 
 https://github.com/filipe1417/python-portscan-rapido/blob/main/portScan.py 
 https://medium.com/@wizD/a-simple-port-scanner-using-python-e541454ea570
+https://www.geeksforgeeks.org/50-common-ports-you-should-know/
