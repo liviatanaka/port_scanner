@@ -14,7 +14,6 @@ class Scanner:
     def __init__(self):
         self.well_known_ports = pd.read_csv("service-names-port-numbers.csv", index_col="Port Number").to_dict()["Description"]
         self.well_known_ports = {k: v for k, v in self.well_known_ports.items() if type(v) == str}
-        self.lock = threading.Lock() 
 
     def scan_ports(self, host, host_port, start_port, end_port):
         response = {
