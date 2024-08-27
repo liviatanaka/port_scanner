@@ -30,7 +30,7 @@ class Scanner:
             result = sock.connect_ex((host_, port_))
 
             if result == 0:
-                with self.lock:  
+  
                     if str(port_) in self.well_known_ports:
                         open_ports[port_] = self.well_known_ports[str(port_)]
 
@@ -41,9 +41,7 @@ class Scanner:
                 print(f"Port {port_}: Closed")
             sock.close()
 
-        # with ThreadPoolExecutor(max_workers=100) as executor:
         for port in range(start_port, end_port + 1):
-            # executor.submit(scan, response["host_ip"], port)
             scan(host_port, port)
 
         response["open_ports"] = open_ports
